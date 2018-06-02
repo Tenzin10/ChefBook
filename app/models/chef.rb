@@ -1,5 +1,6 @@
 class Chef < ActiveRecord::Base
 
+  has_many :recipes
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { in: 3..20 }
   validates_presence_of :email, unique_ness: true
